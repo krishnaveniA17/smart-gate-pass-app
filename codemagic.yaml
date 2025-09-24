@@ -1,8 +1,9 @@
 workflows:
   react-native-expo-apk:
     name: Build Expo APK
-    max_build_duration: 60
-    instance_type: mac_mini_m1
+    max_build_duration: 90
+    instance_type: linux_x2
+
 
     environment:
       vars:
@@ -13,11 +14,21 @@ workflows:
     scripts:
       - name: Install dependencies
         script: |
+          # use npm ci for reproducible installs
           npm ci
+
+      - name: Install EAS CLI
+        script: |
+          # ensure eas-cli is available
+          npm install -g eas-cli
 
       - name: Build APK
         script: |
-          npx eas build -p android --profile preview --non-interactive
+          # verify the eas binary is available
+          which eas || echo "eas not found"
+          eas --version || npx --yes eas-cli --version
+          # run the build non-interactively using the token from env
+          npx --yes eas-cli build -p android --profile preview --non-interactive
 
     artifacts:
       - build/**/*.apk
