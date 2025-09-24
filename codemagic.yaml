@@ -5,7 +5,7 @@ workflows:
     instance_type: mac_mini_m1
     environment:
       vars:
-        EXPO_TOKEN: Encrypted(put_your_token_here)
+        EXPO_TOKEN: $EXPO_TOKEN
       node: 20
       npm: 9
     scripts:
