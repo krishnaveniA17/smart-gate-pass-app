@@ -8,11 +8,12 @@ workflows:
         EXPO_TOKEN: $EXPO_TOKEN
       node: 20
       npm: 9
-    scripts:
+      scripts:
       - name: Install dependencies
-        script: npm install
+        script: npm ci
       - name: Build APK
-        script: npx expo export && npx eas build -p android --profile preview --non-interactive
+        script: npx eas build -p android --profile preview --non-interactive
+
     artifacts:
       - build/**/*.apk
     publishing:
