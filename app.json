@@ -1,42 +1,29 @@
 {
   "expo": {
     "name": "smart-gate-pass-app",
-    "slug": "smart-gate-pass-app",
+    "slug": "smart-gate-pass-app-krishnaveni",
     "version": "1.0.0",
-    "orientation": "portrait",
-    "icon": "./assets/images/icon.png",
-    "scheme": "smartgatepassapp",
-    "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
-    "ios": {
-      "supportsTablet": true
-    },
-    "android": {
-      "adaptiveIcon": {
-        "foregroundImage": "./assets/images/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
-      },
-      "edgeToEdgeEnabled": true
-    },
     "web": {
       "bundler": "metro",
       "output": "static",
       "favicon": "./assets/images/favicon.png"
     },
-    "plugins": [
-      "expo-router",
-      [
-        "expo-splash-screen",
-        {
-          "image": "./assets/images/splash-icon.png",
-          "imageWidth": 200,
-          "resizeMode": "contain",
-          "backgroundColor": "#ffffff"
-        }
-      ]
-    ],
     "experiments": {
       "typedRoutes": true
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "3eb96a58-fe92-49c1-9aa2-c6cad56fdb26"
+      }
+    },
+    "ignore": [
+      "functions",
+      "backfill"
+    ],
+    "android": {
+      "package": "com.krishnaveni17.smartgatepassappkrishnaveni"
     }
   }
 }
