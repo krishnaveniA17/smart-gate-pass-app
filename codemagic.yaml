@@ -3,20 +3,26 @@ workflows:
     name: Build Expo APK
     max_build_duration: 60
     instance_type: mac_mini_m1
+
     environment:
       vars:
         EXPO_TOKEN: $EXPO_TOKEN
       node: 20
       npm: 9
-      scripts:
+
+    scripts:
       - name: Install dependencies
-        script: npm ci
+        script: |
+          npm ci
+
       - name: Build APK
-        script: npx eas build -p android --profile preview --non-interactive
+        script: |
+          npx eas build -p android --profile preview --non-interactive
 
     artifacts:
       - build/**/*.apk
+
     publishing:
       email:
         recipients:
-          - your_email@example.com
+          - your-email@example.com
